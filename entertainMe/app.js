@@ -30,7 +30,7 @@ app.get('/entertainme', async (req, res) => {
   // console.log('--------- ini --->', coy);
 
   if (x) {
-    console.log('ini coy----', JSON.parse(x))
+    // console.log('ini coy----', JSON.parse(x))
     res.send( JSON.parse(x) )
   } else {
     axios.get('http://localhost:3001/movies/')
@@ -44,7 +44,7 @@ app.get('/entertainme', async (req, res) => {
         client.set("testTv", JSON.stringify({
           movies:dataMovie,
           series: data
-        }))
+        }), "EX", 10)
         res.send({
           movies:dataMovie,
           series: data
